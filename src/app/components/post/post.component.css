@@ -1,0 +1,28 @@
+.post-content {
+    /* max-width: 400px; */
+    max-height: 120px;
+    overflow-y: auto;
+}
+.avatar-card-icon {
+    font-size: 40px;
+    margin-right: 8px;
+}
+.sub-title {
+    display: flex;
+    justify-content: space-between;
+}
+.auth {
+    font-size: 0.9em;
+}
+.date-content {
+    font-size: 0.8em;
+}
+.post-title {
+    font-weight: bold;
+    font-size: 1em;
+}
+.comments-title {
+    color: #c158dc;
+    font-weight: bold;
+    padding-bottom: 10px;
+}

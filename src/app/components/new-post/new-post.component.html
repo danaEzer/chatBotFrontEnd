@@ -1,0 +1,34 @@
+<mat-accordion>
+    <mat-expansion-panel>
+      <!-- Header -->
+      <mat-expansion-panel-header #panel >
+        <mat-panel-title>
+          {{ postId ? 'Add New Comment':'Add New Post'}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <!-- Content -->
+      <div class="new-post-wrapper">
+        <!-- Author -->
+        <mat-form-field>
+          <input matInput placeholder="Your name" [(ngModel)]="name"
+            (keyup.enter)="postId ? addComment() : newPost()">
+        </mat-form-field>
+        <!-- Title -->
+        <mat-form-field>
+          <input matInput placeholder="Post title" [(ngModel)]="title"
+            (keyup.enter)="postId ? addComment() : newPost()">
+        </mat-form-field>
+        <!-- Content -->
+        <mat-form-field>
+          <textarea matInput placeholder="Post" [(ngModel)]="content"
+            (keyup.enter)="postId ? addComment() : newPost()"></textarea>
+        </mat-form-field>
+        <!-- Error message -->
+        <p class="error-msg">{{errorMsg}}</p>
+        <!-- Post button -->
+        <button mat-button mat-raised-button (click)="postId ? addComment() : newPost()" >
+          {{ postId ? 'Comment':'Post'}}
+        </button>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
