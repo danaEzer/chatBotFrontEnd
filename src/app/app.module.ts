@@ -12,7 +12,6 @@ import { NewPostComponent } from './components/new-post/new-post.component';
 import { ApiService } from './services/api/api.service';
 import { StoreActionService } from './services/store-action/store-action.service';
 import { SocketService } from './services/socket/socket.service';
-
 // Styles
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
@@ -22,9 +21,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 // Reducers
 import { PostsReducer } from './reducers/posts.reducer';
-
-// Socket config
-
 
 @NgModule({
   declarations: [
