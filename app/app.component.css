@@ -1,0 +1,8 @@
+body{
+    margin: 0px;
+}
+mat-card{
+    background-color: #8e24aa;
+    font-weight: bold;
+    letter-spacing: 0.13em;
+}
