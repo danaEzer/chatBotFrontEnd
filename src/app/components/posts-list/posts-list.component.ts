@@ -7,12 +7,16 @@ import { StoreActionService } from '../../services/store-action/store-action.ser
 })
 export class PostsListComponent implements OnInit {
   posts = [];
+  usersPref;
   constructor(private storeAction: StoreActionService) { }
 
   ngOnInit() {
     this.storeAction.selectPosts().subscribe(posts => {
       this.posts = posts;
-    })
+    });
+    this.storeAction.selectAllUsersPref().subscribe(users => {
+      this.usersPref = users;
+    });
   }
 
 }

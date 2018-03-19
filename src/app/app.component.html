@@ -1,3 +1,23 @@
-<mat-card class="mat-card-menu">{{title}}</mat-card>
-<app-new-post></app-new-post>
+<mat-card class="mat-card-menu row-content">
+    {{title}}
+    <div *ngIf="isSubmitted" class="user-name">
+        | Hello {{userName}}
+    </div>
+</mat-card>
+<div *ngIf="!isSubmitted">
+    <mat-form-field>
+        <mat-select placeholder="Pick your color" [(value)]="colorOption">
+            <mat-option value="pink">Pink</mat-option>
+            <mat-option value="green">Green</mat-option>
+            <mat-option value="orange">Orange</mat-option>
+            <mat-option value="yellow">Yellow</mat-option>
+        </mat-select>
+        <!-- <mat-hint align="end">Your color will be presented to other user</mat-hint> -->
+    </mat-form-field>
+    <mat-form-field class="name">
+        <input matInput placeholder="Your name" [(ngModel)]="userName" (keyup.enter)="updateUserName()">
+    </mat-form-field>
+    
+</div>
+<app-new-post *ngIf="isSubmitted"></app-new-post>
 <app-posts-list></app-posts-list>  

@@ -4,6 +4,8 @@ import { Post } from '../../models/post'
 import { Auther } from '../../models/auther'
 import { Store } from '@ngrx/store';
 import { GET_POSTS, NEW_POST, DELETE_POST } from './../../reducers/posts.reducer';
+import { UPDATE_NAME } from '../../reducers/user-name.reducer';
+import { UPDATE_USERS_PREF } from '../../reducers/users-pref.reducer';
 
 @Injectable()
 export class StoreActionService {
@@ -46,4 +48,21 @@ export class StoreActionService {
         return this.store.select('posts');
     }
 
+    selectUserPref(){
+        return this.store.select('userPref');
+    }
+    updateUserName(userName, color) {
+        var obj = {
+            name: userName,
+            color: color
+        }
+        this.store.dispatch({ type: UPDATE_NAME, payload: obj });
+    }
+
+    updateAllUserPres(users) {
+        this.store.dispatch({ type: UPDATE_USERS_PREF, payload: users });
+    }
+    selectAllUsersPref(){
+        return this.store.select('usersPref');
+    }
 }

@@ -3,6 +3,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Post } from './../../models/post';
 import { Auther } from './../../models/auther';
 import { MatExpansionModule, MatExpansionPanel } from '@angular/material';
+import { StoreActionService } from '../../services/store-action/store-action.service';
 
 @Component({
   selector: 'app-new-post',
@@ -18,9 +19,13 @@ export class NewPostComponent implements OnInit {
   content: string;
   // Error message
   errorMsg: string;
-  constructor(private socketService: SocketService) {}
+  constructor(private socketService: SocketService, private storeActionService: StoreActionService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.storeActionService.selectUserPref().subscribe(userpref => {
+      this.name = userpref.name;
+    })
+  }
   
   newPost() {
     if(this.title && this.name && this.content) {

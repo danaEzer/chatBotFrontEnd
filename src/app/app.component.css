@@ -6,3 +6,15 @@ mat-card{
     font-weight: bold;
     letter-spacing: 0.13em;
 }
+
+.name {
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.row-content {
+    display: flex;
+    flex-direction: row;
+}
+.user-name {
+    padding-left: 10px;
+}

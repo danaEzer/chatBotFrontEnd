@@ -22,6 +22,14 @@ export class SocketService {
     this.socket.emit('update-post', obj);    
   }
 
+  updateUserNameColor(userName, color){
+    var obj = {
+      userName: userName,
+      color: color
+    }
+    this.socket.emit('update-user', obj);    
+  }
+
   getMessages() {
     let observable = new Observable(observer => {
       this.socket = io(this.url);
@@ -29,6 +37,9 @@ export class SocketService {
         switch (data['type']) {
           case 'add-post':
             this.storeAction.addNewPost(data['text']);
+            break;
+          case 'user-pref':
+            this.storeAction.updateAllUserPres(data['text']);
             break;
           case 'update-post':
             this.storeAction.addCommentToPost(data['text'].postId, data['text'].newPost);

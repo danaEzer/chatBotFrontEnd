@@ -27,7 +27,6 @@ export class ApiService {
         if(res && Array.isArray(res)) {
           this.storeAction.updateAllPosts(res);
         }
-        console.log('getPosts', res)
       },
       error => {
         console.log('error', error);

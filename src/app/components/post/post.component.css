@@ -2,6 +2,8 @@
     /* max-width: 400px; */
     max-height: 120px;
     overflow-y: auto;
+    /* display: flex;
+    flex-direction: column; */
 }
 .avatar-card-icon {
     font-size: 40px;
@@ -25,4 +27,44 @@
     color: #c158dc;
     font-weight: bold;
     padding-bottom: 10px;
+}
+.card-wrapper {
+    width: 100%;
+}
+.card-size {
+    width: 50vw;
+}
+.other {
+    /* background-color: white; */
+    display: flex;
+    justify-content: flex-end;
+}
+.me {
+    /* width: 50vw; */
+    display: flex;
+    justify-content: flex-start;
+    
+}
+.me-color {
+    background-color: #81D4FA !important;
+}
+.column-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.pink{
+    background-color: #F48FB1;
+}
+.green {
+    background-color: #C5E1A5;
+}
+.orange {
+    background-color: #FFCC80;
+}
+.yellow {
+    background-color: #FFF176;
+}
+.white {
+    background-color: white;
 }

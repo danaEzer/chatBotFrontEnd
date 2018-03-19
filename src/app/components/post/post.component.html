@@ -1,25 +1,28 @@
-<mat-card *ngIf="post">
-  <!-- Header -->
-  <mat-card-header>
-    <div mat-card-avatar *ngIf="!isComment">
-        <!-- <img src="assets\avatars\1.png" height="40" width="40"> -->
-        <i class="material-icons avatar-card-icon">account_circle</i>
+<div class="card-wrapper" [ngClass]="{other: name !== post.auther.name, me: name === post.auther.name }" *ngIf="usersPref" >
+  <mat-card *ngIf="post" class="card-size column-content" 
+    [ngClass]="{pink: color === 'pink', green: color === 'green', orange: color === 'orange', yellow: color === 'yellow', 'me-color': name === post.auther.name, white: color === 'white'}">
+    <!-- Header -->
+    <mat-card-header>
+      <div mat-card-avatar *ngIf="!isComment">
+          <!-- <img src="assets\avatars\1.png" height="40" width="40"> -->
+          <i class="material-icons avatar-card-icon">account_circle</i>
+      </div>
+      <mat-card-title class="post-title">{{post.title}}</mat-card-title>
+      <mat-card-subtitle>
+          <div class="auth"> From: {{post.auther.name}}</div>
+          <div class="date-content">{{post.date|date}}</div>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <!-- content -->
+    <mat-card-content class="post-content">
+      <p>{{post.content}}</p>
+    </mat-card-content>
+    <div *ngIf="post.comments.length > 0">
+      <div class="comments-title" >Comments</div>
+      <div *ngFor="let comment of post.comments">
+        <app-post [post]="comment" [color]="usersPref[comment.auther.name.toString()]" isComment=true></app-post>
+      </div>
     </div>
-    <mat-card-title class="post-title">{{post.title}}</mat-card-title>
-    <mat-card-subtitle>
-        <div class="auth"> From: {{post.auther.name}}</div>
-        <div class="date-content">{{post.date|date}}</div>
-    </mat-card-subtitle>
-  </mat-card-header>
-  <!-- content -->
-  <mat-card-content class="post-content">
-    <p>{{post.content}}</p>
-  </mat-card-content>
-  <div *ngIf="post.comments.length > 0">
-    <div class="comments-title" >Comments</div>
-    <div *ngFor="let comment of post.comments">
-      <app-post [post]="comment" isComment=true></app-post>
-    </div>
-  </div>
-  <app-new-post *ngIf="!isComment" [postId]="post.id"></app-new-post>
-</mat-card>
+    <app-new-post *ngIf="!isComment && name" [postId]="post.id"></app-new-post>
+  </mat-card>
+</div>

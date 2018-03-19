@@ -19,8 +19,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material';
 // Reducers
 import { PostsReducer } from './reducers/posts.reducer';
+import { UserNameReducer } from './reducers/user-name.reducer';
+import { UsersPrefReducer } from './reducers/users-pref.reducer';
 
 @NgModule({
   declarations: [
@@ -32,9 +35,9 @@ import { PostsReducer } from './reducers/posts.reducer';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({ posts: PostsReducer }),
+    StoreModule.forRoot({ posts: PostsReducer, userPref: UserNameReducer, usersPref: UsersPrefReducer }),
     MatButtonModule, MatCheckboxModule,
-    MatCardModule, MatFormFieldModule, MatExpansionModule,
+    MatCardModule, MatFormFieldModule, MatExpansionModule, MatSelectModule,
     MatInputModule, FormsModule, HttpClientModule,
   ],
   providers: [ApiService, StoreActionService, SocketService],
